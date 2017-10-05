@@ -1,11 +1,12 @@
-<div *ngIf="!user">
-  <h2>NO USER LOGGED IN</h2>
-</div>
-
-<div *ngIf="user">
-  <h2> You are now logged in as {{ user.username }}!! </h2>
-  <p> Here's the user object </p>
-  <pre> {{ user | json }} </pre>
-
-  <button (click)="auth.logout().subscribe()"> logout </button>
+<div class="marginTop">
+  <div *ngIf="!user">
+    <h2>NO USER LOGGED IN</h2>
+  </div>
+  <div *ngIf="user">
+    <h2 class="login-password"> You are now logged in as {{ user.username }}!! </h2>
+    <p class="login-password"> Here's the user object </p>
+    <pre class="login-password"> {{ user | json }} </pre>
+  </div>
+  <div class="underlay-photo"></div>
+  <div class="underlay-black"></div>
 </div>

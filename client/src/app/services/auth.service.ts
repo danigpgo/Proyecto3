@@ -3,6 +3,8 @@ import {Observable} from 'rxjs/Observable';
 import {Http} from '@angular/http';
 import 'rxjs';
 import {environment} from '../../environments/environment';
+import { Router } from '@angular/router';
+
 
 const BASEURL = environment.BASEURL + "/auth";
 
@@ -13,7 +15,7 @@ export class AuthService {
   private userLoginEvent:EventEmitter<any> = new EventEmitter<any>();
   private options = {withCredentials:true};
 
-  constructor(private http: Http) {
+  constructor(private http: Http, public router: Router) {
     this.isLoggedIn().subscribe();
   }
 
@@ -55,7 +57,8 @@ export class AuthService {
       return this.http.get(`${BASEURL}/logout`, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(null))
-        .catch(this.handleError);
+        .subscribe((user) => this.router.navigate(['']))
+        // .catch(this.handleError);
     }
 
     isLoggedIn() {

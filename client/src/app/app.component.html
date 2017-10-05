@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="menu">
   <a class="left"[routerLink]="['/']">Home</a>
-  <a class="right" *ngIf="user" [routerLink]="['/kpi']">New KPI</a>
+  <a class="right" *ngIf="user" [routerLink]="['/kpi']">Dashboard KPI</a>
   <a class="right" *ngIf="user" [routerLink]="['/user']">User Profile</a>
   <a class="right" *ngIf="!user"  [routerLink]="['/login']">Login</a>
   <a class="right" *ngIf="user" (click)="auth.logout().subscribe()">Logout</a>

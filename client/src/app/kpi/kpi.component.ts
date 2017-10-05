@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-kpi',
@@ -7,11 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./kpi.component.css']
 })
 export class kpiformComponent implements OnInit {
-  formInfo = {
-    username:"",
-    password:""
+  user:object;
+  constructor(public auth:AuthService) {
+    this.user = this.auth.getUser();
+    this.auth.getLoginEventEmitter()
+        .subscribe( user => this.user=user );
   }
-  constructor() { }
 
   ngOnInit() {
   }

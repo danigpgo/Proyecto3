@@ -1,6 +1,10 @@
-
 <div class="marginTop">
-  <p class="login-text"> Estás en la página super privada, enhorabuena campeón... ya te queda menos para el hacha.</p>
-<div class="underlay-photo"></div>
-<div class="underlay-black"></div>
+  <div *ngIf="!user">
+    <h2>NO USER LOGGED IN</h2>
+  </div>
+  <div  *ngIf="user">
+    <p class="login-text"> Estás en la página super privada, enhorabuena campeón... ya te queda menos para el hacha.</p>
+  </div>
+  <div class="underlay-photo"></div>
+  <div class="underlay-black"></div>
 </div>
