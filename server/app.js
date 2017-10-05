@@ -9,8 +9,10 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const debug = require('debug')("angularauth:"+path.basename(__filename).split('.')[0]);
 const authRoutes = require('./routes/auth');
+const kpiRoutes = require('./routes/kpiRoutes');
 const mongoose = require('mongoose');
 const cors = require('cors');
+
 
 const app = express();
 
@@ -55,15 +57,17 @@ app.use(passport.session());
 
 
 app.use('/auth', authRoutes);
+app.use('/kpiRoutes', kpiRoutes);
 
-// catch 404 and forward to error handler
+
+//Capturar el 404 y reenviar al manejador de errores
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-// error handler
+// error handler (manejador de errores)
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;

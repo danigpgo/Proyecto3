@@ -6,7 +6,12 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angularauth';
+  title = 'KPI CONTROL';
+  user:object;
   constructor(public auth:AuthService) {
-  };
+    this.user = this.auth.getUser();
+    this.auth.getLoginEventEmitter()
+        .subscribe( user => this.user=user );
+  }
+
 }

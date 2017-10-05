@@ -1,10 +1,15 @@
-<form >
-  <h2> Signup </h2>
-  <label> Username </label>
-  <input type="text" [(ngModel)]="formInfo.username" name="username"/>
-  <br>
-  <label> Password </label>
-  <input type="password" [(ngModel)]="formInfo.password" name="password"/>
-
-  <button (click)="signup()"> signup </button>
+<div class="marginTop">
+  <form class="login-form">
+  <p class="login-text">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-lock fa-stack-1x"></i>
+    </span>
+  </p>
+  <input type="text" name="username" [(ngModel)]="formInfo.username" class="login-username" autofocus="true" required="true" placeholder="Username" />
+  <input type="password" name="password" [(ngModel)]="formInfo.password" class="login-password" required="true" placeholder="Password" />
+  <input type="submit" (click)="signup()" name="SignUp" value="SignUp" class="login-submit" />
 </form>
+<div class="underlay-photo"></div>
+<div class="underlay-black"></div>
+</div>

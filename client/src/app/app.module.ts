@@ -11,6 +11,16 @@ import { RouterModule } from '@angular/router';
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 import {routes} from './routes';
 import { SignupformComponent } from './signupform/signupform.component';
+import { kpiformComponent } from './kpi/kpi.component';
+
+
+// import { PhoneListComponent } from './phone-list/phone-list.component';
+// import { PhoneDetailsComponent } from './phone-details/phone-details.component';
+//
+//
+//
+// import {PhoneService} from './services/phone.service';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +28,10 @@ import { SignupformComponent } from './signupform/signupform.component';
     LoginformComponent,
     HomeComponent,
     UserprofileComponent,
-    SignupformComponent
+    SignupformComponent,
+    kpiformComponent,
+    // PhoneListComponent,
+    // PhoneDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +40,7 @@ import { SignupformComponent } from './signupform/signupform.component';
     RouterModule.forRoot(routes)
   ],
   providers: [AuthService, IsLoggedInService],
+    // providers: [PhoneService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

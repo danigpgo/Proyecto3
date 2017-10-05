@@ -32,7 +32,6 @@ authRoutes.post('/signup', (req, res, next) => {
       req.login(user, (err) => {
         if (err)
           return res.status(500).json({ message: 'Something went wrong' });
-
         res.status(200).json(req.user);
       });
     })
