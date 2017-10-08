@@ -60,6 +60,46 @@ authRoutes.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
+
+authRoutes.put('/update', (req, res, next) => {
+    let hashPass = '';
+    let password = req.body.password;
+        console.log("ID: " + req.user._id);
+
+    if (req.body.password !== "") {
+      let salt = bcrypt.genSaltSync(10);
+      hashPass = bcrypt.hashSync(password, salt);
+    } else {
+      hashPass = req.user.password;
+    }
+
+    const update = {
+      username: req.body.username,
+      hashPass,
+    }
+
+    console.log("ID: " + req.user._id);
+
+    User.findByIdAndUpdate(req.user._id, update)
+      .then(user => {
+        req.login(user, (err) => {
+          if (err)
+            return res.status(500).json({
+              message: 'Something went wrong'
+            });
+
+          res.status(200).json(req.user);
+        });
+      })
+      .catch(e => {
+        console.log(e);
+        res.status(400).json({
+          message: 'Something went wrong'
+        })
+      });
+});
+
+
 authRoutes.get('/logout', (req, res, next) => {
   req.logout();
   res.status(200).json({ message: 'Success' });

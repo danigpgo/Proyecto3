@@ -4,8 +4,9 @@ body, html {
   height: 100%;
 }
 
+
 .marginTop {
-  margin-top: 100px;
+  margin-top: 200px;
 }
 
 body {
@@ -46,44 +47,9 @@ input:focus :-ms-input-placeholder {
   padding: .5rem;
 }
 
-.goal-text {
+.login-text {
   color: white;
   font-size: 1.5rem;
-border: solid white 1px;
-  display: inline-block;
-  top: 300px;
-}
-
-.frecuency-text {
-  color: white;
-  font-size: 1.5rem;
-border: solid white 1px;
-  display: inline-block;
-  left: 550px;
-}
-
-.kpi-text {
-  color: white;
-  font-size: 1.5rem;
-border: solid white 1px;
-  display: inline-block;
-  left: 50px;
-}
-
-.description-text {
-  color: white;
-  font-size: 1.5rem;
-border: solid white 1px;
-  display: inline-block;
-  left: 300px;
-}
-
-.h1-text {
-  color: white;
-  font-size: 1.5rem;
-  font-family: 'Open Sans';
-  font-weight: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   margin: 0 auto;
   max-width: 50%;
   padding: .5rem;
@@ -111,6 +77,28 @@ border: solid white 1px;
   -webkit-transition: 250ms background ease-in;
   transition: 250ms background ease-in;
 }
+
+
+.login-select {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  display: block;
+  margin: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: .5rem;
+  -webkit-transition: 250ms background ease-in;
+  transition: 250ms background ease-in;
+  width: calc(100% - 2rem);
+}
+.login-select:focus {
+  background: white;
+  color: black;
+  -webkit-transition: 250ms background ease-in;
+  transition: 250ms background ease-in;
+}
+
 
 .login-incorrect {
   background: transparent;

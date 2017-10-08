@@ -14,6 +14,7 @@ formInfo = {
   password:""
 }
 
+message: string;
 user:object;
 constructor(public auth:AuthService, public router: Router) {
 this.user = this.auth.getUser();
@@ -29,11 +30,13 @@ ngOnInit() {
     if(username != "" && password != ""){
       console.log(`Signup with ${username} ${password}`)
       this.auth.signup(username, password)
-      .map(user => console.log(user))
-      .subscribe((user) => this.router.navigate(['/kpi']))
-    } else{
+        .map(user => console.log(user))
+        .subscribe((user) => this.router.navigate(['/kpi']),
+        (err) => this.message = err);
+
+    } else {
       console.log("You must set a username and a password");
+      this.message = "You must set a username and a password";
     }
   }
-
-}
+  }

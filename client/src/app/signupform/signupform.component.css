@@ -4,6 +4,7 @@ body, html {
   height: 100%;
 }
 
+
 .marginTop {
   margin-top: 200px;
 }
@@ -77,7 +78,19 @@ input:focus :-ms-input-placeholder {
   transition: 250ms background ease-in;
 }
 
-
+.login-incorrect {
+  background: transparent;
+  text-align: center;
+  border: 0 solid;
+  color: white;
+  display: block;
+  margin: 1rem;
+  padding: .5rem;
+  -webkit-transition: 250ms background ease-in;
+  transition: 250ms background ease-in;
+  width: calc(100% - 3rem);
+  font-family: 'Open Sans';
+}
 
 .login-submit {
   border: 1px solid white;

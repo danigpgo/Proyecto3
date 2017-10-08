@@ -1,12 +1,58 @@
 <div class="marginTop">
+
   <div *ngIf="!user">
-    <h2>NO USER LOGGED IN</h2>
+    <h2>No user logged in.</h2>
+    <a [routerLink]="['']">Back</a>
   </div>
+
   <div *ngIf="user">
-    <h2 class="login-password"> You are now logged in as {{ user.username }}!! </h2>
-    <p class="login-password"> Here's the user object </p>
-    <pre class="login-password"> {{ user | json }} </pre>
+    <div class="container" *ngIf="control">
+
+      <div class="form">
+        <form class="login-form">
+          <p class="login-text">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-lock fa-stack-1x"></i>
+              </span>
+          </p>
+          <input type="text" value={{user.username}} name="username" class="login-username" disabled/>
+          <input type="password" value={{user.password}} name="password" class="login-password" disabled/>
+        </form>
+
+        <button *ngIf="control" (click)="control=!control" class="login-submit">Update profile</button>
+        <p>{{message}}</p>
+
+      </div>
+
+    </div>
   </div>
+
+  <div *ngIf="!control" class="container">
+    <div class="form">
+
+      <form  class="login-form">
+        <p class="login-text">
+          <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-unlock-alt fa-stack-1x"></i>
+
+            </span>
+        </p>
+        <input type="text" name="username" [(ngModel)]="formInfo.username" class="login-username" autofocus="true" required="true" placeholder="Username" />
+        <input type="password" name="password" [(ngModel)]="formInfo.password" class="login-password" required="true" placeholder="Password" />
+        <input (click)="control=!control" type="submit" (click)="upload()" name="Upload" value="Upload" class="login-submit" />
+
+        <div *ngIf="message" class="unauthorized">
+          <p class="login-incorrect">{{message}}</p>
+        </div>
+
+      </form>
+
+      <p>{{message}}</p>
+    </div>
+  </div>
+
   <div class="underlay-photo"></div>
   <div class="underlay-black"></div>
 </div>

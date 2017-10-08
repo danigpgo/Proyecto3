@@ -17,13 +17,6 @@ body {
   overflow: hidden;
 }
 
-h2, p, pre {
-  text-align: center;
-  font-family: 'Open Sans';
-}
-
-
-
 input ::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.7);
 }

@@ -6,6 +6,8 @@ import {UserprofileComponent} from './userprofile/userprofile.component';
 import {LoginformComponent} from './loginform/loginform.component';
 import {SignupformComponent} from './signupform/signupform.component';
 import {kpiformComponent} from './kpi/kpi.component';
+import {AddkpiComponent} from './addkpi/addkpi.component';
+
 
 //Importamos los servicios
 import {IsLoggedInService} from './services/isLoggedIn.canactivate.service';
@@ -13,9 +15,13 @@ import {IsLoggedInService} from './services/isLoggedIn.canactivate.service';
 //Exportamos las rutas
 export const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'user', component: UserprofileComponent, canActivate: [ IsLoggedInService ]  },
+    { path: 'user', component: UserprofileComponent },
     { path: 'login', component: LoginformComponent  },
     { path: 'signup', component: SignupformComponent  },
     { path: 'kpi', component: kpiformComponent  },
+    { path: 'addkpi', component: AddkpiComponent  },
+
+
+
     { path: '**', redirectTo: '' }
 ];

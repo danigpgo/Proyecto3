@@ -17,6 +17,7 @@ export class LoginformComponent implements OnInit {
     username: "",
     password: ""
   };
+
   message: string;
   user: object;
   constructor(public auth: AuthService, public router: Router) {

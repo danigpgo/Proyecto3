@@ -1,0 +1,30 @@
+<div *ngIf="user" class="container">
+
+  <div class="marginTop">
+
+
+    <form class="login-form">
+      <p class="login-text">
+        <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-plus fa-stack-1x"></i>
+      </span>
+      </p>
+      <input class="login-username" type="text" name="nameKPI" [(ngModel)]="formInfo.name" class="login-username" autofocus="true" required="true" placeholder="Name KPI" />
+      <input class="login-username" type="text" name="description" [(ngModel)]="formInfo.description" class="login-username" autofocus="true" required="true" placeholder="Description" />
+      <input class="login-username" type="text" name="goal" [(ngModel)]="formInfo.goal" class="login-username" autofocus="true" required="true" placeholder="Goal" />
+      <select class="login-select" [(ngModel)]="formInfo.frecuency" name="frecuency" placeholder="frecuency">
+        <option value="Day">Day</option>
+        <option value="Week">Week</option>
+        <option value="Month">Month</option>
+        <option value="quarterly">Quarterly</option>
+        <option value="semiannual">Semiannual</option>
+        <option value="annual">Annual</option>
+    </select>
+      <input class="login-submit" type="submit" (click)="createKpi()" name="createKpi" value="Create KPI" class="login-submit" />
+    </form>
+    <div class="underlay-photo"></div>
+    <div class="underlay-black"></div>
+  </div>
+
+</div>

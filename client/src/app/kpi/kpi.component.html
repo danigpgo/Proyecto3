@@ -1,10 +1,22 @@
-<div class="marginTop">
-  <div *ngIf="!user">
-    <h2>NO USER LOGGED IN</h2>
+ <div class="marginTop">
+
+<div *ngIf="user">
+
+  <h1 class="h1-text">KPI DASHBOARD</h1>
+  <div *ngFor="let kpi of kpis">
+    <p class="kpi-text">KPI: {{kpi.name | json}}</p>
+    <p class="description-text">DESCRIPTION: {{kpi.description | json}}</p>
+    <p class="frecuency-text">FRECUENCY: {{kpi.frecuency | json}}</p>
+    <p class="goal-text">GOAL: {{kpi.goal | json}}</p>
   </div>
-  <div  *ngIf="user">
-    <p class="login-text"> Estás en la página super privada, enhorabuena campeón... ya te queda menos para el hacha.</p>
-  </div>
-  <div class="underlay-photo"></div>
-  <div class="underlay-black"></div>
+
+</div>
+
+<div *ngIf="!user" class="unauthorized">
+  <p>Forbidden zone. Please contact with your system administrator.</p>
+  <a [routerLink]="['']">Back</a>
+</div>
+
+<div class="underlay-photo"></div>
+<div class="underlay-black"></div>
 </div>

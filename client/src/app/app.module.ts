@@ -12,14 +12,9 @@ import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 import {routes} from './routes';
 import { SignupformComponent } from './signupform/signupform.component';
 import { kpiformComponent } from './kpi/kpi.component';
+import { KpiService } from './services/kpi.service';
+import { AddkpiComponent } from './addkpi/addkpi.component'
 
-
-// import { PhoneListComponent } from './phone-list/phone-list.component';
-// import { PhoneDetailsComponent } from './phone-details/phone-details.component';
-//
-//
-//
-// import {PhoneService} from './services/phone.service';
 
 
 @NgModule({
@@ -30,8 +25,7 @@ import { kpiformComponent } from './kpi/kpi.component';
     UserprofileComponent,
     SignupformComponent,
     kpiformComponent,
-    // PhoneListComponent,
-    // PhoneDetailsComponent
+    AddkpiComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,8 +33,7 @@ import { kpiformComponent } from './kpi/kpi.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, IsLoggedInService],
-    // providers: [PhoneService],
+  providers: [AuthService, IsLoggedInService, KpiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

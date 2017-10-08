@@ -61,6 +61,14 @@ export class AuthService {
         // .catch(this.handleError);
     }
 
+    upload(username, password) {
+    return this.http.put(`${BASEURL}/update`, {username, password}, this.options)
+      .map(res => res.json())
+      .map(user => this.emitUserLoginEvent(user))
+      .catch(this.handleError);
+  }
+
+
     isLoggedIn() {
       return this.http.get(`${BASEURL}/loggedin`, this.options)
         .map(res => res.json())
