@@ -7,7 +7,7 @@ import {environment} from '../../environments/environment';
 @Injectable()
 export class KpiService {
 
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL = environment.BASEURL;
     private options = { withCredentials: true };
 
     constructor(private http: Http) {
@@ -19,12 +19,14 @@ export class KpiService {
       return Observable.throw(e.json().message);
     }
 
-    createKpi(name,description,goal,frecuency) {
+    createKpi(name,description,goal,kpidata) {
       console.log("entrooo")
-      return this.http.post(`${this.BASE_URL}/kpiRoutes/kpi`, {name,description,goal,frecuency}, this.options)
+      return this.http.post(`${this.BASE_URL}/kpiRoutes/kpi`, {name,description,goal,kpidata}, this.options)
       .map(res => res.json())
       .catch(this.handleError);
     }
+
+
 
     getKpi() {
       console.log("entaaaa")

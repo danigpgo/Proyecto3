@@ -7,6 +7,8 @@ import {LoginformComponent} from './loginform/loginform.component';
 import {SignupformComponent} from './signupform/signupform.component';
 import {kpiformComponent} from './kpi/kpi.component';
 import {AddkpiComponent} from './addkpi/addkpi.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 
 //Importamos los servicios
@@ -20,8 +22,7 @@ export const routes: Routes = [
     { path: 'signup', component: SignupformComponent  },
     { path: 'kpi', component: kpiformComponent  },
     { path: 'addkpi', component: AddkpiComponent  },
-
-
+    { path: 'dashboard', component: DashboardComponent  },
 
     { path: '**', redirectTo: '' }
 ];

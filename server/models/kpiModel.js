@@ -5,7 +5,7 @@ var kpiSchema = new Schema({
   'name': String,
   'description': String,
   'goal': Number,
-  'frecuency': String
+  'kpidata': []
 }, {
   timestamps: {
     createdAt: 'created_at',

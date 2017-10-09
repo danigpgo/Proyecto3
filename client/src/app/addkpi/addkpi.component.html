@@ -4,23 +4,29 @@
 
 
     <form class="login-form">
-      <p class="login-text">
-        <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa  fa-plus fa-stack-1x"></i>
-      </span>
-      </p>
-      <input class="login-username" type="text" name="nameKPI" [(ngModel)]="formInfo.name" class="login-username" autofocus="true" required="true" placeholder="Name KPI" />
-      <input class="login-username" type="text" name="description" [(ngModel)]="formInfo.description" class="login-username" autofocus="true" required="true" placeholder="Description" />
-      <input class="login-username" type="text" name="goal" [(ngModel)]="formInfo.goal" class="login-username" autofocus="true" required="true" placeholder="Goal" />
-      <select class="login-select" [(ngModel)]="formInfo.frecuency" name="frecuency" placeholder="frecuency">
-        <option value="Day">Day</option>
-        <option value="Week">Week</option>
-        <option value="Month">Month</option>
-        <option value="quarterly">Quarterly</option>
-        <option value="semiannual">Semiannual</option>
-        <option value="annual">Annual</option>
-    </select>
+
+      <label class="login-username3">KPI DATA</label>
+        <input class="login-username2" type="text" name="nameKPI" [(ngModel)]="formInfo.name" autofocus="true" required="true" placeholder="Name KPI" />
+        <input class="login-username2" type="text" name="description" [(ngModel)]="formInfo.description" autofocus="true" required="true" placeholder="Description" />
+        <input class="login-username2" type="text" name="goal" [(ngModel)]="formInfo.goal" autofocus="true" required="true" placeholder="Goal" />
+        <br>
+        <label class="login-username3">FRECUENCY DATA</label>
+        <input class="login-username" type="text" name="Enero"      [(ngModel)]="formInfo.kpidata[0]"  autofocus="true" placeholder="Enero" />
+        <input class="login-username" type="text" name="Febrero"    [(ngModel)]="formInfo.kpidata[1]"  autofocus="true" placeholder="Febrero" />
+        <input class="login-username" type="text" name="Marzo"      [(ngModel)]="formInfo.kpidata[2]"  autofocus="true" placeholder="Marzo" />
+        <input class="login-username" type="text" name="Abril"      [(ngModel)]="formInfo.kpidata[3]"  autofocus="true" placeholder="Abril" />
+        <input class="login-username" type="text" name="Mayo"       [(ngModel)]="formInfo.kpidata[4]"  autofocus="true" placeholder="Mayo" />
+        <input class="login-username" type="text" name="Junio"      [(ngModel)]="formInfo.kpidata[5]"  autofocus="true" placeholder="Junio" />
+        <input class="login-username" type="text" name="Julio"      [(ngModel)]="formInfo.kpidata[6]"  autofocus="true" placeholder="Julio" />
+        <input class="login-username" type="text" name="Agosto"     [(ngModel)]="formInfo.kpidata[7]"  autofocus="true" placeholder="Agosto" />
+        <input class="login-username" type="text" name="Septiembre" [(ngModel)]="formInfo.kpidata[8]"  autofocus="true" placeholder="Septiembre" />
+        <input class="login-username" type="text" name="Octubre"    [(ngModel)]="formInfo.kpidata[9]"  autofocus="true" placeholder="Octubre" />
+        <input class="login-username" type="text" name="Noviembre"  [(ngModel)]="formInfo.kpidata[10]" autofocus="true" placeholder="Noviembre" />
+        <input class="login-username" type="text" name="Diciembre"  [(ngModel)]="formInfo.kpidata[11]" autofocus="true" placeholder="Diciembre" />
+
+      <div *ngIf="message" class="unauthorized">
+        <p class="login-incorrect">{{message}}</p>
+      </div>
       <input class="login-submit" type="submit" (click)="createKpi()" name="createKpi" value="Create KPI" class="login-submit" />
     </form>
     <div class="underlay-photo"></div>

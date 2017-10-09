@@ -22,14 +22,14 @@ router.post('/kpi', (req, res, next) => {
     name,
     description,
     goal,
-    frecuency
+    kpidata
   } = req.body;
 
   const theKpi = new Kpi({
     name,
     description,
     goal,
-    frecuency
+    kpidata
   });
 
   theKpi.save()
@@ -57,13 +57,13 @@ router.put('/kpi/:id', (req, res) => {
     name,
     description,
     goal,
-    frecuency
+    kpidata
   } = req.body;
   const updates = {
     name,
     description,
     goal,
-    frecuency
+    kpidata
   };
 
   Kpi.findByIdAndUpdate(req.params.id, updates, {

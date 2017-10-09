@@ -2,12 +2,16 @@
 
 <div *ngIf="user">
 
-  <h1 class="h1-text">KPI DASHBOARD</h1>
-  <div *ngFor="let kpi of kpis">
-    <p class="kpi-text">KPI: {{kpi.name | json}}</p>
-    <p class="description-text">DESCRIPTION: {{kpi.description | json}}</p>
-    <p class="frecuency-text">FRECUENCY: {{kpi.frecuency | json}}</p>
-    <p class="goal-text">GOAL: {{kpi.goal | json}}</p>
+  <h1 class="h1-text">KPI LIST</h1>
+  <div class="text2" *ngFor="let kpi of kpis">
+    <p class="text">KPI: {{kpi.name | json}}</p>
+    <p class="text">DESCRIPTION: {{kpi.description | json}}</p>
+    <p class="text">FRECUENCY: {{kpi.kpidata | json}}</p>
+    <p class="text">GOAL: {{kpi.goal | json}}</p>
+    <div>
+      <input class="login-submit" type="submit" (click)="createKpi()" name="createKpi" value="Update KPI" />
+      <input class="login-submit" type="submit" (click)="createKpi()" name="createKpi" value="Delete KPI"  />
+    </div>
   </div>
 
 </div>

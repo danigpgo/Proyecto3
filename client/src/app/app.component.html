@@ -3,7 +3,8 @@
   <a class="left"[routerLink]="['/']">Home</a>
   <a class="right" *ngIf="user"  (click)="auth.logout().subscribe()">Logout</a>
   <a class="right" *ngIf="user"  [routerLink]="['/user']">Edit User</a>
-  <a class="right" *ngIf="user"  [routerLink]="['/kpi']">Dashboard KPI</a>
+  <a class="right" *ngIf="user"  [routerLink]="['/dashboard']">Dashboard</a>
+  <a class="right" *ngIf="user"  [routerLink]="['/kpi']">KPI List</a>
   <a class="right" *ngIf="user"  [routerLink]="['/addkpi']">Add KPI</a>
   <a class="right" *ngIf="!user" [routerLink]="['/login']">Login</a>
   <a class="right" *ngIf="!user" [routerLink]="['/signup']">SignUp</a>

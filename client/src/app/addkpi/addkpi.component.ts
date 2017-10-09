@@ -4,7 +4,6 @@ import { AuthService } from '../services/auth.service';
 import {KpiService} from '../services/kpi.service';
 import {Observable} from 'rxjs/Observable';
 
-
 @Component({
   selector: 'app-addkpi',
   templateUrl: './addkpi.component.html',
@@ -17,7 +16,7 @@ export class AddkpiComponent implements OnInit {
   name:"",
   description:"",
   goal:"",
-  frecuency:"",
+  kpidata:[]
 }
 
 
@@ -38,10 +37,10 @@ export class AddkpiComponent implements OnInit {
 
 
   createKpi() {
-    const { name,description,goal,frecuency} = this.formInfo;
+    const { name,description,goal,kpidata} = this.formInfo;
     console.log(this.formInfo);
-    if (name != "" && description != "" && goal != "" && frecuency != "") {
-      this.kpiS.createKpi(name,description,goal,frecuency)
+    if (name != "" && description != "" && goal != "") {
+      this.kpiS.createKpi(name,description,goal,kpidata)
         .map(kpi => console.log(kpi))
         .subscribe((kpi) => this.router.navigate(['/kpi']))
     } else {
