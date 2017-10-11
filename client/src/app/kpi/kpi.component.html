@@ -1,26 +1,21 @@
- <div class="marginTop">
+<div class="marginTop">
+  <div *ngIf="user">
+    <h1 class="h1-text">KPI LIST</h1>
+    <div class="text2" *ngFor="let kpi of kpis">
+      <p class="login-text">KPI: {{kpi.name | json}}</p>
+      <p class="login-text">DESCRIPTION: {{kpi.description | json}}</p>
 
-<div *ngIf="user">
-
-  <h1 class="h1-text">KPI LIST</h1>
-  <div class="text2" *ngFor="let kpi of kpis">
-    <p class="text">KPI: {{kpi.name | json}}</p>
-    <p class="text">DESCRIPTION: {{kpi.description | json}}</p>
-    <p class="text">FRECUENCY: {{kpi.kpidata | json}}</p>
-    <p class="text">GOAL: {{kpi.goal | json}}</p>
-    <div>
-      <input class="login-submit" type="submit" (click)="createKpi()" name="createKpi" value="Update KPI" />
-      <input class="login-submit" type="submit" (click)="createKpi()" name="createKpi" value="Delete KPI"  />
+      <div class="login-text">
+        <input class="login-submit" type="submit"  [routerLink]="['/line', kpi._id]" name="line" value="Graph KPI" />
+      </div>
+      <div class="login-text">
+      </div>
     </div>
   </div>
-
-</div>
-
-<div *ngIf="!user" class="unauthorized">
-  <p>Forbidden zone. Please contact with your system administrator.</p>
-  <a [routerLink]="['']">Back</a>
-</div>
-
-<div class="underlay-photo"></div>
-<div class="underlay-black"></div>
+  <div *ngIf="!user" class="unauthorized">
+    <p>Forbidden zone. Please contact with your system administrator.</p>
+    <a [routerLink]="['']">Back</a>
+  </div>
+  <div class="underlay-photo"></div>
+  <div class="underlay-black"></div>
 </div>

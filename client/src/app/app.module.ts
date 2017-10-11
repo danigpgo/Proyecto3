@@ -15,7 +15,7 @@ import { SignupformComponent } from './signupform/signupform.component';
 import { kpiformComponent } from './kpi/kpi.component';
 import { KpiService } from './services/kpi.service';
 import { AddkpiComponent } from './addkpi/addkpi.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { LineComponent } from './line/line.component';
 
 
 
@@ -28,7 +28,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SignupformComponent,
     kpiformComponent,
     AddkpiComponent,
-    DashboardComponent,
+    LineComponent,
   ],
   imports: [
     BrowserModule,

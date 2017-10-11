@@ -4,8 +4,10 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 import {environment} from '../../environments/environment';
 
+
 @Injectable()
 export class KpiService {
+requestURL;
 
   BASE_URL = environment.BASEURL;
     private options = { withCredentials: true };
@@ -26,16 +28,18 @@ export class KpiService {
       .catch(this.handleError);
     }
 
-
-
     getKpi() {
       console.log("entaaaa")
       return this.http.get(`${this.BASE_URL}/kpiRoutes/kpi`)
         .map((res) => res.json());
     }
 
-    getsinglekpi(id) {
-      return this.http.get(`${this.BASE_URL}/kpiRoutes/kpi/${id}`)
+    copyid(id) {
+      this.requestURL = id
+    }
+
+    getsinglekpi(kpiID) {
+      return this.http.get(`${this.BASE_URL}/kpiRoutes/kpi/${kpiID}`)
         .map((res) => res.json());
     }
 

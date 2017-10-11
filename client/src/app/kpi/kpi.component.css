@@ -46,11 +46,14 @@ input:focus :-ms-input-placeholder {
   padding: .5rem;
 }
 
-.text {
+.login-text {
+  font-family: 'Open Sans';
+  font-weight: 100;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin: 5px;
   margin: 5px;
+  display: inline-block;
 }
 
 .text2 {
@@ -112,6 +115,7 @@ margin: 30px;
 .login-submit {
   border: 1px solid white;
   background: transparent;
+  display: inline-block;
   border-radius: 3px;
   color: white;
   margin:10px;

@@ -42,9 +42,9 @@ export class AddkpiComponent implements OnInit {
     if (name != "" && description != "" && goal != "") {
       this.kpiS.createKpi(name,description,goal,kpidata)
         .map(kpi => console.log(kpi))
-        .subscribe((kpi) => this.router.navigate(['/kpi']))
+        .subscribe((kpi) => this.router.navigate(['/kpi']),
+        (err) => this.message = err);
     } else {
-      this.message = "All fields required";
     }
   }
 }

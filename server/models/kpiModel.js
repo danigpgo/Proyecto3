@@ -2,10 +2,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var kpiSchema = new Schema({
-  'name': String,
-  'description': String,
-  'goal': Number,
-  'kpidata': []
+  name: String,
+  description: String,
+  goal: Number,
+  kpidata: [Number],
+  user: {type:Schema.Types.ObjectId, ref:'User'}
 }, {
   timestamps: {
     createdAt: 'created_at',

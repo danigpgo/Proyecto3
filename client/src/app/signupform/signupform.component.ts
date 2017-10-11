@@ -9,34 +9,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./signupform.component.css']
 })
 export class SignupformComponent implements OnInit {
-formInfo = {
-  username:"",
-  password:""
-}
+  formInfo = {
+    username: "",
+    password: ""
+  }
 
-message: string;
-user:object;
-constructor(public auth:AuthService, public router: Router) {
-this.user = this.auth.getUser();
-this.auth.getLoginEventEmitter()
-    .subscribe( user => this.user=user );
-}
+  message: string;
+  user: object;
+  constructor(public auth: AuthService, public router: Router) {
+    this.user = this.auth.getUser();
+    this.auth.getLoginEventEmitter()
+      .subscribe(user => this.user = user);
+  }
 
-ngOnInit() {
-}
+  ngOnInit() {
+  }
 
-  signup(){
+  signup() {
     const {username, password} = this.formInfo;
-    if(username != "" && password != ""){
+    if (username != "" && password != "") {
       console.log(`Signup with ${username} ${password}`)
       this.auth.signup(username, password)
         .map(user => console.log(user))
         .subscribe((user) => this.router.navigate(['/kpi']),
         (err) => this.message = err);
-
     } else {
-      console.log("You must set a username and a password");
       this.message = "You must set a username and a password";
     }
   }
-  }
+}
