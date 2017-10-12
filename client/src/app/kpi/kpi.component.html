@@ -2,11 +2,14 @@
   <div *ngIf="user">
     <h1 class="h1-text">KPI LIST</h1>
     <div class="text2" *ngFor="let kpi of kpis">
-      <p class="login-text">KPI: {{kpi.name | json}}</p>
-      <p class="login-text">DESCRIPTION: {{kpi.description | json}}</p>
+      <p class="login-text"><span>KPI:</span> {{kpi.name | json}}</p>
+      <p class="login-text"><span>DESCRIPTION:</span> {{kpi.description | json}}</p>
 
       <div class="login-text">
-        <input class="login-submit" type="submit"  [routerLink]="['/line', kpi._id]" name="line" value="Graph KPI" />
+        <input class="login-submit" type="submit"  [routerLink]="['/line', kpi._id]" name="line" value="Graph Line KPI" />
+        <input class="login-submit" type="submit"  [routerLink]="['/bar', kpi._id]" name="line" value="Graph Bar KPI" />
+        <input class="login-submit" type="submit"  [routerLink]="['/radar', kpi._id]" name="line" value="Graph Radar KPI" />
+
       </div>
       <div class="login-text">
       </div>

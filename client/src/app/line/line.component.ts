@@ -5,12 +5,12 @@ import { KpiService } from '../services/kpi.service';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-line',
   templateUrl: './line.component.html',
   styleUrls: ['./line.component.css']
 })
+
 export class LineComponent implements OnInit {
   user: object;
   data;
@@ -39,11 +39,9 @@ export class LineComponent implements OnInit {
   }
 
 
-  public lineChartData: Array<any> = [];
+  public lineChartData: Array<any> = [ ];
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
 
 

@@ -16,6 +16,8 @@ import { kpiformComponent } from './kpi/kpi.component';
 import { KpiService } from './services/kpi.service';
 import { AddkpiComponent } from './addkpi/addkpi.component';
 import { LineComponent } from './line/line.component';
+import { BarComponent } from './bar/bar.component';
+import { RadarComponent } from './radar/radar.component';
 
 
 
@@ -29,6 +31,8 @@ import { LineComponent } from './line/line.component';
     kpiformComponent,
     AddkpiComponent,
     LineComponent,
+    BarComponent,
+    RadarComponent,
   ],
   imports: [
     BrowserModule,

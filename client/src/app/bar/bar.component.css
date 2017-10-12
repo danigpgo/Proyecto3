@@ -1,3 +1,9 @@
+.row {
+margin: 100px 100px 100px 100px;
+
+}
+
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 body, html {
@@ -6,11 +12,6 @@ body, html {
 
 .marginTop {
   margin-top: 100px;
-}
-
-span {
-  font-weight: 800;
-  font-family: 'Open Sans';
 }
 
 body {
@@ -51,41 +52,27 @@ input:focus :-ms-input-placeholder {
   padding: .5rem;
 }
 
-.login-text {
-  font-family: 'Open Sans';
-  font-weight: 100;
+.text {
   color: white;
-  font-size: 1rem;
-  margin-left: 100px;
-  padding-left: 40px;
-}
-
-
-.login-text2 {
-  font-family: 'Open Sans';
-  font-weight: 100;
-  color: white;
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 5px;
-  display: inline-block;
+  margin: 5px;
 }
+
 .text2 {
   color: white;
-  padding: 10px;
   font-size: 1.5rem;
   border-radius: 5px;
 border: solid white 1px;
-margin: 20px 270px 20px 270px;
-background: rgba(255, 255, 255, 0.3);
-z-index: -1;
+margin: 30px;
 }
-
 
 .h1-text {
   color: white;
   font-size: 1.5rem;
   font-family: 'Open Sans';
   font-weight: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   margin: 0 auto;
   max-width: 50%;
   padding: .5rem;
@@ -131,10 +118,9 @@ z-index: -1;
 .login-submit {
   border: 1px solid white;
   background: transparent;
-  display: inline-block;
   border-radius: 3px;
   color: white;
-  margin:3px 10px 12px 0px;
+  margin:10px;
   min-width: 1px;
   padding: 10px 20px 10px 20px;
   -webkit-transition: 250ms background ease-in;

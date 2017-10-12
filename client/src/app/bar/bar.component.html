@@ -1,0 +1,16 @@
+<div class="row" *ngIf="resolve==true">
+  <div class="col-md-6">
+    <div style="display: block" *ngIf="barChartData">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+  <div class="underlay-photo"></div>
+  <div class="underlay-black"></div>
+</div>

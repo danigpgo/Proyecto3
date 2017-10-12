@@ -8,13 +8,15 @@ const mongoose = require('mongoose');
 
 /* GET kpi listing. */
 router.get('/kpi', (req, res, next) => {
-  console.log("GET KPIs");
-  Kpi.find()
+  Kpi.find({"user": req.user._id})
     .then(kpiList => res.status(200).json(kpiList))
     .catch(e => res.status(500).json({
       error: e.message
     }));
 });
+
+
+
 
 /* CREATE a new kpi. */
 router.post('/kpi', (req, res, next) => {
