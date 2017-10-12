@@ -13,7 +13,7 @@ import { Observable } from 'rxjs/Observable';
 
 export class kpiformComponent implements OnInit {
   kpis;
-  user: object;
+  user: any;
   constructor(
     public auth: AuthService,
     public kpiService: KpiService,
@@ -21,19 +21,22 @@ export class kpiformComponent implements OnInit {
     this.user = this.auth.getUser();
     this.auth.getLoginEventEmitter()
       .subscribe(user => this.user = user);
+      this.kpiService.getKpi()
+      .subscribe(e => {
+        console.log("VALOR DE", e)
+        this.kpis = e;
+      });
   }
 
   ngOnInit() {
-    this.kpiService.getKpi().subscribe(e => {
-      this.kpis = e;
-    });
+    console.log("USER DE KPILIS", this.user)
 
 
   }
 
-showKPI() {
-  console.log(this.kpis[0]._id)
-  this.kpiService.copyid(this.kpis[0]._id)
-}
+// showKPI() {
+//   console.log(this.kpis)
+//   this.kpiService.copyid(this.kpis)
+// }
 
 }

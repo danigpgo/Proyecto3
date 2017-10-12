@@ -6,7 +6,7 @@ var kpiSchema = new Schema({
   description: String,
   goal: Number,
   kpidata: [Number],
-  user: {type:Schema.Types.ObjectId, ref:'User'}
+  id: {type: Schema.Types.ObjectId, ref: "User"}
 }, {
   timestamps: {
     createdAt: 'created_at',

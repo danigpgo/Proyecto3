@@ -1,14 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const Kpi = require('../models/kpiModel');
+const User = require('../models/User');
 const mongoose = require('mongoose');
+const passport = require('passport');
+const path = require('path');
+
 
 
 
 
 /* GET kpi listing. */
 router.get('/kpi', (req, res, next) => {
-  Kpi.find({"user": req.user._id})
+  console.log(req.user)
+  Kpi.find({"id":req.user._id})
     .then(kpiList => res.status(200).json(kpiList))
     .catch(e => res.status(500).json({
       error: e.message
@@ -20,24 +25,21 @@ router.get('/kpi', (req, res, next) => {
 
 /* CREATE a new kpi. */
 router.post('/kpi', (req, res, next) => {
-  const {
-    name,
-    description,
-    goal,
-    kpidata
-  } = req.body;
-
+  console.log("ENTRO EN CREATE KPI")
+  console.log(req.body)
   const theKpi = new Kpi({
-    name,
-    description,
-    goal,
-    kpidata
+    id : req.body.formInfo.id,
+    name : req.body.formInfo.name,
+    description : req.body.formInfo.description,
+    goal : req.body.formInfo.goal,
+    kpidata : req.body.formInfo.kpidata
   });
+
+  console.log("THE KPI", theKpi)
 
   theKpi.save()
     .then(p => res.status(200).json({
-      message: 'New Kpi created!',
-      kpi: k
+      message: 'New Kpi created!'
     }))
     .catch(e => res.status(500).json({
       error: e.message

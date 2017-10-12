@@ -21,22 +21,23 @@ requestURL;
       return Observable.throw(e.json().message);
     }
 
-    createKpi(name,description,goal,kpidata) {
-      console.log("entrooo")
-      return this.http.post(`${this.BASE_URL}/kpiRoutes/kpi`, {name,description,goal,kpidata}, this.options)
+    createKpi(formInfo) {
+      console.log("ENTRO EN CREATE KPI SERVICE")
+      console.log("OPTIONS EN CREATE KPI", this.options)
+      return this.http.post(`${this.BASE_URL}/kpiRoutes/kpi`, {formInfo}, this.options)
       .map(res => res.json())
       .catch(this.handleError);
     }
 
     getKpi() {
       console.log("entaaaa")
-      return this.http.get(`${this.BASE_URL}/kpiRoutes/kpi`)
+      return this.http.get(`${this.BASE_URL}/kpiRoutes/kpi`, this.options)
         .map((res) => res.json());
     }
 
-    copyid(id) {
-      this.requestURL = id
-    }
+    // copyid(id) {
+    //   this.requestURL = id
+    // }
 
     getsinglekpi(kpiID) {
       return this.http.get(`${this.BASE_URL}/kpiRoutes/kpi/${kpiID}`)
