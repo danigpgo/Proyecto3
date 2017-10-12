@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const session    = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const logger = require('morgan');
@@ -12,6 +12,7 @@ const authRoutes = require('./routes/auth');
 const kpiRoutes = require('./routes/kpiRoutes');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const dotenv = require('dotenv').load();
 
 
 const app = express();
