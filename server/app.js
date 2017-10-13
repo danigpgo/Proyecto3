@@ -56,9 +56,11 @@ require('./passport/local');
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 app.use('/auth', authRoutes);
 app.use('/kpiRoutes', kpiRoutes);
+
+app.use((req, res)=>res.sendFile(__dirname + './public/index.html'));
+
 
 
 //Capturar el 404 y reenviar al manejador de errores
