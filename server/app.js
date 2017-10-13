@@ -12,7 +12,7 @@ const authRoutes = require('./routes/auth');
 const kpiRoutes = require('./routes/kpiRoutes');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const dotenv = require('dotenv').load();
+require('dotenv').config();
 
 
 const app = express();
