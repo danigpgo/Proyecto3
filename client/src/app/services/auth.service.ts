@@ -6,10 +6,10 @@ import {environment} from '../../environments/environment';
 import { Router } from '@angular/router';
 
 
-const BASEURL = environment.BASEURL + "/auth";
 
 @Injectable()
 export class AuthService {
+  BASEURL = environment.BASEURL + "/auth";
 
   private user:object;
   private userLoginEvent:EventEmitter<any> = new EventEmitter<any>();
@@ -40,21 +40,21 @@ export class AuthService {
 
     signup(username,password) {
       console.log("entrooo")
-      return this.http.post(`${BASEURL}/signup`, {username,password}, this.options)
+      return this.http.post(`${this.BASEURL}/signup`, {username,password}, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
         .catch(this.handleError);
     }
 
     login(username,password) {
-      return this.http.post(`${BASEURL}/login`, {username,password}, this.options)
+      return this.http.post(`${this.BASEURL}/login`, {username,password}, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
         .catch(this.handleError);
     }
 
     logout() {
-      return this.http.get(`${BASEURL}/logout`, this.options)
+      return this.http.get(`${this.BASEURL}/logout`, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(null))
         .subscribe((user) => this.router.navigate(['']))
@@ -62,7 +62,7 @@ export class AuthService {
     }
 
     upload(username, password) {
-    return this.http.put(`${BASEURL}/update`, {username, password}, this.options)
+    return this.http.put(`${this.BASEURL}/update`, {username, password}, this.options)
       .map(res => res.json())
       .map(user => this.emitUserLoginEvent(user))
       .catch(this.handleError);
@@ -70,7 +70,7 @@ export class AuthService {
 
 
     isLoggedIn() {
-      return this.http.get(`${BASEURL}/loggedin`, this.options)
+      return this.http.get(`${this.BASEURL}/loggedin`, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
         .catch(this.handleError);

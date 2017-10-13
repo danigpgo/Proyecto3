@@ -9,7 +9,7 @@ import {environment} from '../../environments/environment';
 export class KpiService {
 requestURL;
 
-  BASE_URL = environment.BASEURL;
+  BASEURL = environment.BASEURL;
     private options = { withCredentials: true };
 
     constructor(private http: Http) {
@@ -24,14 +24,14 @@ requestURL;
     createKpi(formInfo) {
       console.log("ENTRO EN CREATE KPI SERVICE")
       console.log("OPTIONS EN CREATE KPI", this.options)
-      return this.http.post(`${this.BASE_URL}/kpiRoutes/kpi`, {formInfo}, this.options)
+      return this.http.post(`${this.BASEURL}/kpiRoutes/kpi`, {formInfo}, this.options)
       .map(res => res.json())
       .catch(this.handleError);
     }
 
     getKpi() {
       console.log("entaaaa")
-      return this.http.get(`${this.BASE_URL}/kpiRoutes/kpi`, this.options)
+      return this.http.get(`${this.BASEURL}/kpiRoutes/kpi`, this.options)
         .map((res) => res.json());
     }
 
@@ -40,17 +40,17 @@ requestURL;
     // }
 
     getsinglekpi(kpiID) {
-      return this.http.get(`${this.BASE_URL}/kpiRoutes/kpi/${kpiID}`)
+      return this.http.get(`${this.BASEURL}/kpiRoutes/kpi/${kpiID}`)
         .map((res) => res.json());
     }
 
     editkpi(kpi) {
-      return this.http.put(`${this.BASE_URL}/kpiRoutes/kpi/${kpi.id}`, kpi)
+      return this.http.put(`${this.BASEURL}/kpiRoutes/kpi/${kpi.id}`, kpi)
         .map((res) => res.json());
     }
 
     removekpi(id) {
-      return this.http.delete(`${this.BASE_URL}/kpiRoutes/kpi/${id}`)
+      return this.http.delete(`${this.BASEURL}/kpiRoutes/kpi/${id}`)
         .map((res) => res.json());
     }
 }
